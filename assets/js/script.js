@@ -16,16 +16,26 @@ let loadPage = function () {
 		let events = {};
 
 		for (let i = START_HOUR; i <= END_HOUR; i++) {
-			let workHour = date.set("hour", i).format("hA");
+			let workHour = date.set("hour", i);
+			let workHourText = workHour.format("hA");
 			// Object.defineProperty(events, workHour, {value: ""});
 
 			let timeBlock = $("<div>").addClass("row");
 
-			let timeColumn = $("<div>").text(workHour).addClass("col-2 list-group-item");
-			let textColumn = $("<div>").addClass("col-8 list-group-item");
-			textColumn.text("textColumn");
-			let saveButton = $("<div>").addClass("col-2 list-group-item");
-			saveButton.text("saveButton");
+			let timeColumn = $("<h3>").text(workHourText).addClass("col-2 list-group-item text-right border-left-0");
+			let textColumn = $("<textarea>").addClass("col-9 list-group-item");
+
+			if (moment().hour() === date.hour()) {
+				textColumn.addClass("list-group-item-warning");
+			} else if (moment().isAfter(workHour)) {
+				textColumn.addClass("list-group-item-secondary");
+			} else if (workHour.isAfter(moment())) {
+				textColumn.addClass("list-group-item-success");
+			}
+
+			let saveButton = $("<button>").addClass(
+				"col-1 list-group-item list-group-item-action active fas fa-save text-center"
+			);
 
 			timeBlock.append(timeColumn);
 			timeBlock.append(textColumn);
