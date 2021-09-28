@@ -18,6 +18,6 @@ The purpose of this project is to create a simple calendar application that allo
 ### [Click here to go to the live deployment](https://jamestw13.github.io/workday-scheduler/)
 
 TODO:
-![Screenshot](#)
+![Screenshot](https://github.com/jamestw13/workday-scheduler/blob/main/workday-scheduler-screenshot.png)
 
 
