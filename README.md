@@ -6,17 +6,18 @@ The purpose of this project is to create a simple calendar application that allo
 
 ### This will completed by...
 
-- [ ] When the planner is opened the current day is displayed at the top of the calendar
-- [ ] When scrolling down, the user is presented with time blocks for standard business hours
-- [ ] When viewing the time blocks for that day, each time block is color-coded to indicate whether it is in the past, present, or future
-- [ ] Clicking a time block takes user to enter an event
-- [ ] Clicking the save button for that time block saves the text for that event in local storage so it will persist when the page is refreshed
+- [x] When the planner is opened the current day is displayed at the top of the calendar
+- [x] When scrolling down, the user is presented with time blocks for standard business hours
+- [x] When viewing the time blocks for that day, each time block is color-coded to indicate whether it is in the past, present, or future
+- [x] Clicking a time block takes user to enter an event
+- [x] Clicking the save button for that time block saves the text for that event in local storage so it will persist when the page is refreshed
 
 
 ## Links
 
-### [Click here to go to the live deployment](https://jamestw13.github.io/weekday-scheduler/)
+### [Click here to go to the live deployment](https://jamestw13.github.io/workday-scheduler/)
 
 TODO:
 ![Screenshot](#)
+
 
