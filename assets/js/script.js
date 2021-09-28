@@ -1,3 +1,4 @@
+/* Start Global Variables */
 // Global template data structure
 let events = {
 	"9AM": "",
@@ -13,6 +14,26 @@ let events = {
 
 // Moment object
 let date = moment();
+
+/* End Global Variables */
+/* Start Event Handlers */
+
+// Save button click handler
+$("#timeBlockList").on("click", "button", function () {
+	// Get time of hour slot
+	let time = $(this).siblings("h3").text().trim();
+	// Get text from hour slot
+	let text = $(this).siblings("textarea").val().trim();
+
+	// Add info back into global
+	events[time] = text;
+
+	// Update localStorage with new global info
+	saveEvents();
+});
+
+/* End Event Handlers */
+/* Start Main Functions */
 
 // Create an event row
 let createEvent = function (hour) {
@@ -57,20 +78,6 @@ let saveEvents = function () {
 	localStorage.setItem("events", JSON.stringify(events));
 };
 
-// Save button click handler
-$("#timeBlockList").on("click", "button", function () {
-	// Get time of hour slot
-	let time = $(this).siblings("h3").text().trim();
-	// Get text from hour slot
-	let text = $(this).siblings("textarea").val().trim();
-
-	// Add info back into global
-	events[time] = text;
-
-	// Update localStorage with new global info
-	saveEvents();
-});
-
 // Set the initial page information
 let loadPage = function () {
 	// Add current date to header
@@ -79,7 +86,7 @@ let loadPage = function () {
 	// Pull in events from localStorage
 	savedEvents = JSON.parse(localStorage.getItem("events"));
 
-	// If no events in localStorage create a new blank set
+	// If events are in localStorage, use them
 	if (savedEvents) {
 		events = savedEvents;
 	}
@@ -89,6 +96,7 @@ let loadPage = function () {
 		createEvent(hour);
 	}
 };
+/* End Main Functions */
 
 // Begin loading the page content
 loadPage();
